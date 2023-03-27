@@ -1,0 +1,6 @@
+import { waitFor } from '@testing-library/react'; import { renderWithRouter }
+from '@cib/shared'; import App from '../App'; describe('renders without
+crashing', () => { it('renders homepage', async () => { const { getByRole,
+getAllByText } = renderWithRouter(<App />, { route: '/{{name}}' }); await
+waitFor(() => [getByRole('main')]);
+expect(getAllByText(/dashboard/i)).not.toBeNull(); }); });
